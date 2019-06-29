@@ -29,10 +29,10 @@ http://www.waptn.com/api/index.php
 
 参数|意义|长度|是否必填
 ---|---|---|---
-link | 视频分享链接 ||是
-clientId|客户ID||是
-timestamp|当前时间戳||是
-sign|接口签名值||是
+link | 视频分享链接 |255|是
+clientId|客户ID|16|是
+timestamp|当前时间戳|13|是
+sign|接口签名值|32|是
 
 ##### 接口示例
 ```
@@ -50,14 +50,14 @@ sign|接口签名值||是
 ###### 接口输出：
 参数|意义|类型|长度|是否必填
 ---|---|---|---|---
-retCode | 输出结果码 | 字符串 | |是
-retDesc | 输出结果消息 | 字符串| | 否
+retCode | 输出结果码 | 数字 |11 |是
+retDesc | 输出结果消息 | 字符串| 255| 否
 data | 处理结果数据 | 对象 | |是
-data.link| 视频分享地址| 字符串 ||是
-data.title| 视频标题 | 字符串| |否
-data.cover| 视频封面URL| 字符串| |否
-data.video| 视频文件URL| 字符串| |成功时是
-data.count| 剩余次数| 数字| |是
+data.link| 视频分享地址| 字符串 |255|是
+data.title| 视频标题 | 字符串| 255|否
+data.cover| 视频封面URL| 字符串| 255|否
+data.video| 视频文件URL| 字符串|255 |成功时是
+data.count| 剩余次数| 数字|11 |是
 
 ```
 注意：retCode成功时为200，失败时一般为401；retDesc成功时为ok，失败时为失败原因（中文）；
