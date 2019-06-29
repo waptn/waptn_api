@@ -25,4 +25,4 @@ function file_get_contents_post($url, $post) {
 
 $data = file_get_contents_post($iiiLabVideoDownloadURL, array("link" => $link, "timestamp" => $timestamp, "sign" => $sign, "clientId" => $clientId));
 $data_arr = json_decode(trim($data), true);
-print_r($data_arr);
+print_r($data_arr); 
