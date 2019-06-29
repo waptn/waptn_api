@@ -1,26 +1,24 @@
 ##  腾鸟解析接口协议
 
 ### 1 签名
-每一次接口调用，都需要加上接口签名（sign）字段，服务器用该字段值鉴定接口确实由授权客户端发起。
-
-签名算法涉及到以下两个参数：
-
+接口调用需加上接口签名（sign）字段，服务器用该字段值鉴定接口确实由授权客户端发起。
+签名计算方式：
+```
+sign = md5(link + timestamp + clientSecretKey)
+```
 参数|意义|长度|是否必填
 ---|---|---|---
-secretKey | 客户端密钥| 10 |是
+link | 视频分享链接| 255 |是
 timestamp | 当前时间戳，包括毫秒 | 13 | 是
+clientSecretKey | 客户端密钥| 32 |是
 
-将这两个参数及**具体接口指定参与排序的字段的值**以如下方式拼接后，取MD5值，即：
-```
-MD5(SecretKey + timestamp + interfaceValue)
-```
-提示：在视频解析接口中，interfaceValue的值即为videoPageUrl字段的值，即视频链接
+注意：clientSecretKey可以在管理后台查看，请妥善保管；
 
 ### 2 接口
 #### 接口地址：
 ```
 http://www.waptn.com/api/index.php
-
+```
 ###### 接口方式：POST
 ###### 接口Content-Type：application/json;charset=UTF-8
 ###### 接口形式：JSON
@@ -29,7 +27,6 @@ http://www.waptn.com/api/index.php
 ```
 videoPageUrl
 ```
-
 ###### 接口入参：
 
 参数|意义|长度|是否必填
