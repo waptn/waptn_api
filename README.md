@@ -21,9 +21,8 @@ clientSecretKey | 客户端密钥| 32 |是
 ```
 http://www.waptn.com/api/index.php
 ```
-###### 接口方式：POST
-###### 接口Content-Type：application/json;charset=UTF-8
-###### 接口形式：JSON
+###### 接口方式：POST、GET
+###### 接口形式：JSON、Array、String
 
 ###### 接口输入：
 
